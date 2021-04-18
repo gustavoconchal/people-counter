@@ -6,20 +6,40 @@ void main() {
       title: "Contador de Pessoas",
       home: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+        children: [
           Text(
             "Pessoas: 0",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          TextButton(
-              onPressed: () {},
-              child: Text(
-                "+1",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30),
-              )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "+1",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                    )),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "-1",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                    )),
+              ),
+            ],
+          ),
           Text(
             "Pode Entrar!",
             style: TextStyle(
