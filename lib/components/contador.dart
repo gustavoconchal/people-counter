@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 
-class Contador extends StatelessWidget {
-  final int peopleCounter;
-  final void Function(int) pc;
+class Contador extends StatefulWidget {
+  @override
+  _ContadorState createState() => _ContadorState();
+}
 
-  Contador(this.peopleCounter, this.pc);
+class _ContadorState extends State<Contador> {
+  int _peopleCounter = 0;
+
+  void _changeCounter(int p) {
+    setState(() {
+      if ((_peopleCounter + p) >= 0) {
+        _peopleCounter += p;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +29,7 @@ class Contador extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Pessoas: $peopleCounter",
+              "Pessoas: $_peopleCounter",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
@@ -30,7 +40,7 @@ class Contador extends StatelessWidget {
                   padding: EdgeInsets.all(10.0),
                   child: TextButton(
                       onPressed: () {
-                        pc(1);
+                        _changeCounter(1);
                       },
                       child: Text(
                         "+1",
@@ -44,7 +54,7 @@ class Contador extends StatelessWidget {
                   padding: EdgeInsets.all(10.0),
                   child: TextButton(
                       onPressed: () {
-                        pc(-1);
+                        _changeCounter(-1);
                       },
                       child: Text(
                         "-1",
